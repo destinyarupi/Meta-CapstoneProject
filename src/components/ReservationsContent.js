@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import "./styles/ReservationsContent.css";
 
-function ReservationsContent() {
+const ReservationsContent = () => {
 
     const [formData, setFormData] = useState({
         name: "",
