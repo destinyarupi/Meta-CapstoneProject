@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 
-const OrderOnline = () => {
+function OrderOnline() {
   return (
     <div>
       <Header />
