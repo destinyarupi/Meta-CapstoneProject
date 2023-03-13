@@ -2,7 +2,7 @@ import React from 'react'
 import "./styles/Navigation.css"
 import NavLinks from './NavLinks'
 
-const Navigation = () => {
+function Navigation() {
   return (
     <nav className="navigation">
         <NavLinks />
