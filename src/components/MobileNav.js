@@ -1,22 +1,32 @@
-import React, { useState } from 'react'
-import "./styles/MobileNav.css"
-import NavLinks from './NavLinks'
-import { GrMenu, GrClose } from "react-icons/gr";
 
-const MobileNav = () => {
+import { useState } from 'react';
+import { GrMenu, GrClose } from 'react-icons/gr';
+import './styles/MobileNav.module.css';
+import NavLinks from './NavLinks';
 
-  const [open, setOpen] = useState(false);
-  const closeMenu = <GrMenu className="hamburger" size="20px" onClick={()=>setOpen(!open)}/>
-  const openMenu = <GrClose className="hamburger close-menu" size="20px" onClick={()=>setOpen(!open)}/> 
-
-  const closeMobileMenuOnClick = () => setOpen(false);
+function MobileNav() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMobileMenuOnClick = () => setIsMenuOpen(false);
 
   return (
-    <nav className="mobile-nav">
-      {open? openMenu : closeMenu}
-      {open && <NavLinks isMobile={true} closeMobileMenu = {closeMobileMenuOnClick} />}
+    <nav className={styles['mobile-nav']}>
+      {isMenuOpen ? (
+        <GrClose
+          className="hamburger close-menu"
+          size="20px"
+          onClick={toggleMenu}
+        />
+      ) : (
+        <GrMenu
+          className="hamburger"
+          size="20px"
+          onClick={toggleMenu}
+        />
+      )}
+      {isMenuOpen && <NavLinks isMobile closeMobileMenu={closeMobileMenuOnClick} />}
     </nav>
-  )
+  );
 }
 
-export default MobileNav
+export default MobileNav;
