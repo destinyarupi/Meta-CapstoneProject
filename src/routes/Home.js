@@ -4,14 +4,14 @@ import HeroSection from '../components/HeroSection';
 import Specials from '../components/Specials';
 import Footer from '../components/Footer';
 
-const Home = () => {
+function Home() {
   return (
-    <>
+    <main>
       <HeaderElement />
       <HeroSection />
       <Specials />
       <Footer />
-    </>
+    </main>
   )
 }
 
